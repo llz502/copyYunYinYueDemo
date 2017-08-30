@@ -1,9 +1,17 @@
 /* Nexus 5X 的屏幕 412px宽 x 732px高 */
-header{
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
 
-}
+
 /*logo和app广告*/
 .topnav{
+    position: fixed;
+    z-index: 9999;
+    width:100%;
     background: #d43c33;
     padding:0 10px;
     display: flex;
@@ -39,8 +47,14 @@ header{
     transform-origin:0 0; 
 }
 /* tabs组件 */
+.globalTabs{
+    padding-top:64px;
+}
 .tabsNav{
-
+    background: #fff;
+    position: fixed;;
+    z-index: 10000;
+    width:100%;
 }
 .tabsNav>ol{
     padding-top:3px;
@@ -73,14 +87,16 @@ header{
     transform: scaleY(.5);
     background: #d33a31;
 }
-
+.tabsContent{
+}
+/* 推荐歌单功能区 */
 .advice{
-
+    display: none;
 }
-.advice>.songSheet{
-
+.advice.active{
+    display: block;
 }
-.advice>.songSheet>h2,.advice>.lastest>h2{
+.advice>h2,.advice>.lastest>h2{
     color:#333;
     font-size:17px;
     font-weight: normal;
@@ -90,7 +106,7 @@ header{
     padding-left:9px;
     position: relative;
 }
-.advice>.songSheet>h2::after,.advice>.lastest>h2::after{
+.advice>h2::after,.advice>.lastest>h2::after{
     display: block;
     content:'';
     position: absolute;
@@ -100,15 +116,12 @@ header{
     width:2px;
     background: #d33a31;
 }
-.advice>.songSheet>.list{
-
-}
-.advice>.songSheet>.list>ol{
+.advice>ol{
     display:flex;
     flex-wrap:wrap;
     justify-content: space-between;
 }
-.advice ol>li{
+.advice>ol>li{
     flex-shrink:0;
     width:33.3%;
     padding-left: 1px;
@@ -135,52 +148,60 @@ header{
     font-size: 13px;
     padding: 4px 6px;
 }
-.advice>.lastest>h2{
-    
-}
-.advice>.lastest>.list{
-    
-}
-.advice>.lastest>.list>ol{
-    
-}
-.advice>.lastest>.list>ol>li{
+/* 歌曲列表统一样式 */
+.musicArea>.musicList>ol>a{
     width:100%;
     display: flex;
-    padding:0 10px;
+    padding:0px 10px;
     justify-content: space-between;
-    
 }
-.advice>.lastest>.list>ol>li>.lastestSong{
-    width:90%;
+.musicArea>.musicList>ol>a>.musicItem{
+    width:84%;
     flex-direction: column;
     flex-wrap: nowrap;
+    position: relative;
+    padding:6px 0;
 }
-.advice>.lastest>.list>ol>li>.lastestSong>h3{
+.musicArea>.musicList>ol>a>.musicItem::after,
+.musicArea>.musicList>ol>a>.bofangBtn::after{
+    display: block;
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    border-bottom:1px solid rgba(0, 0, 0, .4);
+    width:200%;
+    height:200%;
+    transform:scale(.5);
+    transform-origin: 0 0;
+}
+.musicArea>.musicList>ol>a>.musicItem>h3{
     color: #333;
     font-size:17px;
     font-weight: normal;
     line-height: 25px;
 }
-.advice>.lastest>.list>ol>li>.lastestSong>small{
+.musicArea>.musicList>ol>a>.musicItem>small{
     font-size: 12px;
     line-height: 18px;
     color: #888;
 }
-.advice>.lastest>.list>ol>li>.lastestSongBtn{
-    width:10%;
+.musicArea>.musicList>ol>a>.bofangBtn{
+    padding-left: 13%;
+    position: relative;
+    line-height: 56px;
 }
-.advice>.lastest>.list>ol>li>.lastestSongBtn svg{
-    width: 30px;
-    height:30px;
+.musicArea>.musicList>ol>a>.bofangBtn>.icon{
+    color: rgba(123, 119, 119, 0.82);
+    font-size:22px;
 }
 .commendApp{
     width: 80%;
     margin:0 auto;
 }
 .commendApp>.appLogo{
-    margin-top:40px;
-    margin-bottom:10px;
+    padding-top:77px;
+    padding-bottom:10px;
 }
 .commendApp>.openApp{
     color: #d33a31;
@@ -193,10 +214,194 @@ header{
 .commendApp>p{
     font-size: 12px;
     color: #888;
-    line-height: 14px;
+    line-height: 16px;
+    margin-top:7px;
+    margin-bottom:36px;
+    transform: scale(.75);
 }
 .commendApp>.appLogo svg{
     display: block;
     width:230px;
     margin:0 auto;
 }
+/* 热歌榜 */
+.hot{
+    display: none;
+    margin-top: 40px;
+    margin-bottom: 54px;
+}
+.hot.active{
+    display: block;
+}
+.hot>.hotBar{
+    position: relative;
+    padding-top: 38.9%;
+    overflow: hidden;
+    background:url(../src/jpg/hot_music_bg_2x.jpg) no-repeat;
+    background-size:contain;
+}
+.hot>.hotBar::after{
+    content: " ";
+    z-index: 1;
+    background-color: rgba(0,0,0,.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.hot>.hotBar>.hoticon{
+    position: absolute;
+    top: 33px;
+    left: 20px;
+    width:142px;
+    height:67px;
+    background: url(../src/png/index_icon_2x.png) no-repeat;
+    background-size: 166px 97px;
+    background-position: -24px -30px;
+    z-index: 10000;
+}
+.hot>.hotBar>.updateTime{
+    position: absolute;
+    top: 109px;
+    left: 15px;
+    color: hsla(0,0%,100%,.8);
+    font-size: 12px;
+    z-index: 10001;
+    transform: scale(.91);
+}
+.hot>.hotest .rank{
+    padding-top:18px;
+    padding-bottom:16px;
+    padding-right: 3%;
+    font-size: 17px;
+    color: #999;
+}
+.hot>.hotest .rank-font{
+    color: #df3436;
+}
+/* 搜索歌单 */
+.search{
+    display: none;
+    padding-top: 40px;
+}
+.search.active{
+    display: block;
+}
+.search form{
+    margin: 15px 10px;
+}
+.search .songInput{
+    width: 100%;
+    height: 30px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background: #ebecec;
+    border-radius: 30px;
+    position: relative;
+}
+.search .songInput>.icon-search{
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    font-size: 21px;
+    color:#d9d3d3;
+}
+.search .songInput>.input{
+    display: block;
+    width:100%;
+    height: 100%;
+    color: #333;
+    font-size: 14px;
+    line-height: 30px;
+    background: transparent;
+    border:0;
+    -webkit-appearance: none;
+    border-radius: 0;
+    outline: 0;
+    z-index: 10001;
+}
+.search .songInput>.holder{
+    position: absolute;
+    left:28px; 
+    top: 5px;
+    font-size: 14px;
+    color:#c9c9c9;
+    z-index: 9997;
+}
+.search .adviceSearch.active{
+    display: none;
+}
+.search .adviceSearch>h2{
+    margin-top:30px;
+    margin-left:10px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #666;
+    font-weight: 400;
+}
+.search .adviceSearch>ul{    
+    margin: 10px 0 7px;
+    padding: 0px 0px 0px 9px;
+}
+.search .adviceSearch>ul>li{    
+    display: inline-block;
+    height: 32px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #333;
+    position: relative;
+} 
+.search .adviceSearch>ul>li::after{
+    display: block;
+    content:'';
+    position: absolute;
+    top: 0;
+    left:0;
+    width:100%;
+    height: 100%;
+    border-radius:16px;
+    border:1px solid rgba(0, 0, 0, 0.1);
+} 
+.search>.result{
+    display: none;
+}
+.search>.result.active{
+    display: block;
+}
+.search>.result>h2{
+    height: 50px;
+    margin-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    line-height: 50px;
+    color: #507daf;
+    font-weight: normal;
+}
+.search>.result>h2>strong{
+    font-weight: normal;
+}
+.search>.result>ul{}
+.search>.result>ul>li{
+    padding: 0 10px 0 32px;
+    font-size: 15px;
+    line-height: 45px;
+    color: #333;
+    position: relative;
+}
+.search>.result>ul>li>a{
+    display: block;
+    color: #333;
+}
+.search>.result>ul>li>a>.icon-searchResult{
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    font-size: 25px;
+    line-height: 35px;
+    color: #d9d3d3;
+}
+.search>.result>ul>li>a>span{}

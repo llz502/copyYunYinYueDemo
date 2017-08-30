@@ -1,0 +1,128 @@
+.playerWrapper{
+    width: 100%;
+    height: 100vh;
+    padding-top:70px;
+    background-image:url(../src/jpg/America2Chinabg.jpg);
+    /* background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    transform: scale(1.5);
+    transform-origin: center top;
+    z-index: -1;
+    transition: opacity .3s linear;
+    padding-top:1px; */
+    position: relative;
+}
+.playerWrapper::before{
+    display: block;
+    content: '';
+    position: absolute;
+    left: calc(50% - 15px);
+    top: 0;
+    width: 96px;
+    height: 137px;
+    background: url(../src/png/needle-ip6.png) no-repeat;
+    background-position: 100;
+    background-size: contain;
+    z-index: 2;
+    /* animation: circling 20s infinite linear; */
+}
+.play{
+    
+}
+.play>.diskcoverWrapper{
+}
+.play>.diskcoverWrapper>.diskcover{
+    position: relative;
+    width: 296px;
+    height: 296px;
+    margin: 0 auto 0;
+    padding: 55px 55px;
+}
+.play>.diskcoverWrapper>.diskcover::before{
+    display: block;
+    content: '';
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background: url(../src/png/disc-ip6.png);
+    background-size: cover;
+    z-index: 1;
+}
+.play>.diskcoverWrapper>.diskcover::after{
+    display: block;
+    content: '';
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background: url(../src/png/disc_light-ip6.png);
+    background-size: cover;
+    z-index: 1;
+}
+.play>.diskcoverWrapper>.diskcover>.img{
+    width: 184px;
+    animation: all transform 3s linear infinite;
+    transform: rotateZ(360deg);
+}
+.play>.diskcoverWrapper>.diskcover>.img>img{
+    width:100%;
+    height: 100%;
+}
+
+.play>.lyrics{
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: hsla(0,0%,100%,.6);
+    padding: 26px 38px 0px;
+}
+.play>.lyrics>h2{
+    font-size: 16px;
+    line-height: 1.1;
+    font-weight: 400;
+}
+.play>.lyrics>h2>strong{
+    color: #fefefe;
+    font-size: 18px;
+    font-weight: 400;
+}
+.play>.lyrics>ul{
+    padding-top: 9px;
+    height: 105px;
+    overflow: hidden;
+}
+.play>.lyrics>ul>li{
+    line-height: 32px;
+}
+.play>.lyrics>ul>li.active{
+    color: rgb(255, 255, 255);
+}
+.domain{
+    padding: 82px 35px 0;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.domain>.btn{
+    height: 42px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #d43b32;
+    padding: 0 48px;
+    border:1px solid #D43A31;
+    margin: 0 6px;
+    border-radius: 6px;
+}
+.domain>.btn.active{
+    background: #d43b32;
+    color: #fff;
+}
+
