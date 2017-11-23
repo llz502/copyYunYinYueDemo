@@ -50,6 +50,7 @@
     background: url(../src/png/disc-ip6.png);
     background-size: cover;
     z-index: 1;
+    animation: circling 10s linear infinite;
 }
 .play>.diskcoverWrapper>.diskcover::after{
     display: block;
@@ -62,17 +63,29 @@
     background: url(../src/png/disc_light-ip6.png);
     background-size: cover;
     z-index: 1;
+    animation: circling 20s linear infinite;
 }
 .play>.diskcoverWrapper>.diskcover>.img{
     width: 184px;
-    animation: all transform 3s linear infinite;
-    transform: rotateZ(360deg);
+    animation: circling 20s linear infinite;
 }
 .play>.diskcoverWrapper>.diskcover>.img>img{
     width:100%;
     height: 100%;
 }
-
+.play>.diskcoverWrapper>.diskcover>.video{
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 10003;
+}
+.play>.diskcoverWrapper>.diskcover>.video>video{
+    display: block;
+    width:100%;
+    height:100%;
+}
 .play>.lyrics{
     font-size: 16px;
     text-align: center;
@@ -93,15 +106,23 @@
     font-size: 18px;
     font-weight: 400;
 }
-.play>.lyrics>ul{
+.play>.lyrics>.lyricsContent{
     padding-top: 9px;
     height: 105px;
     overflow: hidden;
+    animation: 20s linear transform;
 }
-.play>.lyrics>ul>li{
+.play>.lyrics>.lyricsContent>ul{
+    transition: transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -webkit-transition: -webkit-transform 2s;
+    -o-transition: -o-transform 2s;
+    transform: translateY(0)
+}
+.play>.lyrics>.lyricsContent>ul>li{
     line-height: 32px;
 }
-.play>.lyrics>ul>li.active{
+.play>.lyrics>.lyricsContent>ul>li.active{
     color: rgb(255, 255, 255);
 }
 .domain{
@@ -115,14 +136,27 @@
     height: 42px;
     line-height: 42px;
     font-size: 18px;
-    color: #d43b32;
-    padding: 0 48px;
     border:1px solid #D43A31;
     margin: 0 6px;
     border-radius: 6px;
+    
 }
 .domain>.btn.active{
     background: #d43b32;
+}
+.domain>.btn>a{
+    padding: 0 48px;
+    color: #d43b32;
+    display: block;
+}
+.domain>.btn.active>a{
     color: #fff;
 }
-
+@keyframes circling {
+    0%{
+        transform: rotate(0)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+  .navbar{
+    position: relative;
+  }
+  .navbar .mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(109, 108, 108, 0.488);
+  }
+  .navbar img{
+    opacity: .5;
+    display: block;
+  }
+  .navbar h1{
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 46px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar h2{
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 27px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar .link{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%,-50%);
+    color: #FFF;
+    text-align: center;
+    font-size: 23px;
+    text-shadow: 0 0 40px black;
+  }
+  .navbar a{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #fff;
+  }
+  .content{
+    width: 66.7%;
+    margin: 0 auto;
+  }
+  .content h2{
+    margin: 30px 0 10px;
+    font-weight: 600;
+    font-size: 22px;
+    color: rgb(64, 64, 64);
+    line-height: 1.1;
+  }
+  .content p{
+    margin: 20px 0;
+    line-height: 2.5;
+    font-size: 16px;
+    color: #404040;
+  }
+  .content ul{
+    line-height: 2.5;
+    font-size: 16px;
+    color: #404040;
+    margin-left: 20px;
+  }
+  .content .function li{
+    margin-top: 30px;
+  }
+  .content .function img{
+    width: 460px;
+    display: block;
+  }
+  .content ul h3{
+    font-size: 16px;
+  }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="./yunyinyue-bg.png" alt="">
+    <div class="mask"></div>
+    <h1>YunYinYue_App</h1>
+    <h2>作者：LiZhen Lin</h2>
+    <div class="link">
+      <a href="https://llz502.github.io/copyYunYinYueDemo/index.html" target="_blank">项目</a>
+      <a href="https://github.com/llz502/copyYunYinYueDemo" target="_blank">源码</a>
+    </div>
+  </div>
+  <div class="content">
+      <h2>为什么要做这个App</h2>
+      <p>
+        在了解jquery和leancloud之后，就要开始尝试使用它们所提供的方法接口，网易云音乐结构相对简单，
+        制作了主页（包括推荐歌单，热搜歌单，搜索歌曲），歌单页，播放页，将歌曲信息（歌词，图片地址，mp3媒体文件的地址等）存放在leancloud数据库里，
+        使用七牛云存放媒体文件，在线ms图库存放图片
+      </p>
+      <h2>项目功能</h2>
+      <div class="function">
+        <ul>
+          <li>
+              推荐歌单，不仅有六个推荐歌单，还有十首推荐歌曲
+            <img src="yunyinyue-tuijian.png" alt="">
+          </li>
+          <li>
+              热歌推荐，十首热歌推荐
+            <img src="yunyinyue-rege.png" alt="">
+          </li>
+          <li>
+              歌单页，点击不同的歌单推荐，在推荐歌单里有不同的歌单页
+            <img src="yunyinyue-gedan.png" alt="">
+          </li>
+          <li>
+              播放页，歌曲会自动播放，歌词自动滚动，磁盘会自动旋转
+            <img src="yunyinyue-bofang.png" alt="">
+          </li>
+        </ul>
+      </div>
+      <h2>技术选型</h2>
+      <p>
+        <ul>
+          <li>require,原本是使用CommonJS引入模块，但它是同步的，并且不能放在github上来请求模块资源，所以使用异步的require来引入各个模块文件</li>
+          <li>jquery，作为底层库，提供操作元素的方法，</li>
+          <li>leancloud存放数据，将图片，媒体资源，文字等放在七牛云和在线图库上</li>
+          <li>也使用了zepto,为了验证zepto，拥有和jquery一样的api</li>
+          <li>webpack进行模块管理</li>
+          <li>npm下载项目所需模块</li>
+        </ul>
+      </p>
+      <h2>目录结构</h2>
+      <p class="list">
+        <ul>
+          <li>
+            <h3>node_modules/</h3>使用npm下载模块
+          </li>
+          <li>
+            <h3>src/</h3>存放所有静态资源文件
+          </li>
+          <li>
+            <h3>lib/</h3>存放所有npm下载引入的模块
+          </li>
+          <li>
+            <h3>css/</h3>放所有的页面样式的css文件
+          </li>
+          <li>
+            <h3>dist/</h3>存放所有自己写的.js代码文件，每个文件都是一个独立的模块
+          </li>
+        </ul>
+      </p>
+  </div>
+
+</body>
+</html>

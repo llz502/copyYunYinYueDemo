@@ -1,4 +1,10 @@
 {
   "name": "",
-  "version": ""
+  "version": "",
+  "devDependencies": {
+    "webpack": "^3.5.6"
+  },
+  "dependencies": {
+    "requirejs": "^2.3.5"
+  }
 }

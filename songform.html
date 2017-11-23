@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/songform.css">
+    <script src="./js/iconfont.js"></script>
+</head>
+<body>
+    <section class="pylst_head">
+    </section>
+    <section class="plhead_info">
+    </section>
+    <section class="musiclist">
+    </section>
+
+    <script src="./lib/zepto.min.js"></script>
+    <script src="./lib/av-min.js"></script>
+    <script>
+    (function() {
+        function Main() {
+            Init()
+        }
+
+        function Init() {
+            var APP_ID = 'Pl6OltxSyIVbzE9fovztWdVr-gzGzoHsz';
+            var APP_KEY = 'G1NOVIqTp7eLiyqf9TMYd4GQ';
+            AV.init({
+                appId: APP_ID,
+                appKey: APP_KEY
+            });
+            function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            var id = getParameterByName('id') + '';
+            new AV.Query('Songform').get(id).then(function(result){
+                let {title,publisher,firstTag,secondTag,thirdTag,summary,avatar,img} = result.attributes
+                let divPylst_head=` 
+                <div class="plhead_bg"></div>       
+                <div class="plhead_lf"><img src="${img}" alt=""></div>
+                <div class="plhead_ri">
+                    <h2>${title}</h2>
+                    <div class="avatar">
+                        <img src="${avatar}" alt="">
+                    </div>
+                    ${publisher}
+                </div>`
+                $('.pylst_head').append(divPylst_head)
+                let divInfo=`        
+                <div class="plhead_tags">
+                    <h3>标签：</h3>
+                    <ul>
+                        <li>${firstTag}</li>
+                        <li>${secondTag}</li>
+                        <li>${thirdTag}</li>
+                    </ul>
+                </div>
+                <p>${summary}</p>`
+                $('.plhead_info').append(divInfo)
+            },function(err){
+                alert(err)
+            })
+
+            new AV.Query('Playlist').find().then(function(result){
+                var $ol = $('<ol></ol>')
+                result.map(function(value,index){
+                    let {singer,name} = value.attributes
+                    let lastestA=`                        
+                        <a href="./player.html?id=${value.id}">
+                            <div class="lastestSong musicItem">
+                                <h3>${name}</h3>
+                                <small>${singer}</small>
+                            </div>
+                            <div class="bofangBtn">
+                                <svg class="icon" aria-hidden="true">   <use xlink:href="#icon-bofang"></use> </svg>
+                            </div>
+                        </a>`
+                    
+                    $ol.append(lastestA)
+                })
+                $('.musiclist').append($ol)
+            },function(err){
+                alert(err)
+            })
+        }
+
+        Main()
+    })()
+    </script>
+</body>
+</html>

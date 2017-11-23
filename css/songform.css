@@ -1,0 +1,146 @@
+.pylst_head{
+    position: relative;
+    padding: 30px 10px 30px 15px;
+    overflow: hidden;
+}
+.pylst_head::after{
+    display: block;
+    content: '';
+    clear:both;
+}
+.pylst_head>.plhead_bg{
+    background: url(../src/songform/songform1.jpg);
+    background-size: cover;
+    background-position: 50%;
+    filter: blur(20px);
+    transform: scale(1.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.pylst_head>.plhead_lf{
+    width: 126px;
+    height: 126px;
+    float: left;
+}
+.pylst_head>.plhead_lf>img{
+    width: 100%;
+}   
+.pylst_head>.plhead_ri{
+    float: left;
+    margin: 13px 16px;
+    color: hsla(0,0%,100%,.7);
+    font-size: 14px;
+}   
+.pylst_head>.plhead_ri>h2{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fefefe;
+    margin-bottom:30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+}   
+.pylst_head>.plhead_ri>.avatar{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}   
+.pylst_head>.plhead_ri>.avatar>img{
+    border-radius: 15px;
+    width:100%;
+}   
+
+.plhead_info{
+    font-size: 14px;
+    color: #666;
+}
+.plhead_info>.plhead_tags{
+    padding:5px 12px;
+}
+.plhead_info>.plhead_tags::after{
+    display: block;
+    content:'';
+    clear: both;
+}
+.plhead_info>.plhead_tags>h3{
+    font-weight: 400;
+    font-size: 14px;
+    float: left;
+}
+.plhead_info>.plhead_tags>ul{
+    font-size: 12px;
+}
+.plhead_info>.plhead_tags>ul>li{
+    float: left;
+    padding:0 13px;
+}
+.plhead_info>p{
+    padding:5px 12px;
+    line-height: 19px;
+}
+
+/* 歌曲列表统一样式 */
+.musiclist>ol{
+
+}
+.musiclist>ol>a{
+    width:100%;
+    display: flex;
+    padding:0px 10px;
+    justify-content: space-between;
+}
+.musiclist>ol>a>.musicItem{
+    width:84%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    padding:6px 0;
+}
+.musiclist>ol>a>.musicItem::after,
+.musiclist>ol>a>.bofangBtn::after{
+    display: block;
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    border-bottom:1px solid rgba(0, 0, 0, .4);
+    width:200%;
+    height:200%;
+    transform:scale(.5);
+    transform-origin: 0 0;
+}
+.musiclist>ol>a>.musicItem>h3{
+    color: #333;
+    font-size:17px;
+    font-weight: normal;
+    line-height: 25px;
+}
+.musiclist>ol>a>.musicItem>small{
+    font-size: 12px;
+    line-height: 18px;
+    color: #888;
+}
+.musiclist>ol>a>.bofangBtn{
+    padding-left: 13%;
+    position: relative;
+    line-height: 56px;
+}
+.musiclist>ol>a>.bofangBtn>.icon{
+    color: rgba(123, 119, 119, 0.82);
+    font-size:22px;
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
