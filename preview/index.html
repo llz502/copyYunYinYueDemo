@@ -93,9 +93,28 @@
   .content .function li{
     margin-top: 30px;
   }
+  .content .function .img-wrap{
+    position: relative;
+    width: 100%;
+  }
+  .content .function li:nth-of-type(1) .img-wrap{
+    padding-top: 268.91%;
+  }
+  .content .function li:nth-of-type(2) .img-wrap{
+    padding-top: 158.54%;
+  }
+  .content .function li:nth-of-type(3) .img-wrap{
+    padding-top: 163.21%;
+  }
+  .content .function li:nth-of-type(4) .img-wrap{
+    padding-top: 165.28%;
+  }
   .content .function img{
-    width: 460px;
+    width: 100%;
     display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .content ul h3{
     font-size: 16px;
@@ -139,19 +158,27 @@
         <ul>
           <li>
               推荐歌单，不仅有六个推荐歌单，还有十首推荐歌曲
-            <img src="yunyinyue-tuijian.png" alt="">
+            <div class="img-wrap">
+              <img src="yunyinyue-tuijian.png" alt="">
+            </div>
           </li>
           <li>
-              热歌推荐，十首热歌推荐
-            <img src="yunyinyue-rege.png" alt="">
+            热歌推荐，十首热歌推荐
+            <div class="img-wrap">
+              <img src="yunyinyue-rege.png" alt="">
+            </div>
           </li>
           <li>
-              歌单页，点击不同的歌单推荐，在推荐歌单里有不同的歌单页
-            <img src="yunyinyue-gedan.png" alt="">
+            歌单页，点击不同的歌单推荐，在推荐歌单里有不同的歌单页
+            <div class="img-wrap">
+              <img src="yunyinyue-gedan.png" alt="">
+            </div>
           </li>
           <li>
-              播放页，歌曲会自动播放，歌词自动滚动，磁盘会自动旋转
-            <img src="yunyinyue-bofang.png" alt="">
+            播放页，歌曲会自动播放，歌词自动滚动，磁盘会自动旋转
+            <div class="img-wrap">
+              <img src="yunyinyue-bofang.png" alt="">
+            </div>
           </li>
         </ul>
       </div>
