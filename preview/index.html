@@ -12,6 +12,8 @@
     }
   .navbar{
     position: relative;
+    width: 100%;
+    padding-top: 39.06%;
   }
   .navbar .mask{
     width: 100%;
@@ -24,6 +26,10 @@
   .navbar img{
     opacity: .5;
     display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
   .navbar h1{
     position: absolute;
@@ -95,6 +101,9 @@
     font-size: 16px;
   }
   @media screen and (max-width: 768px) {
+    .navbar img{
+      width: 100%;
+    }
     .navbar h1{
       font-size: 23px;
     }
