@@ -134,6 +134,7 @@
 }
 .domain>.btn{
     height: 42px;
+    width: 100px;
     line-height: 42px;
     font-size: 18px;
     border:1px solid #D43A31;
@@ -145,7 +146,6 @@
     background: #d43b32;
 }
 .domain>.btn>a{
-    padding: 0 48px;
     color: #d43b32;
     display: block;
 }
